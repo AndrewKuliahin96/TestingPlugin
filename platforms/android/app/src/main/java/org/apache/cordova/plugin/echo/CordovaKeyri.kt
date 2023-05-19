@@ -1,1 +1,0 @@
-../../../../../../../../../../../../cordova-keyri/src/android/com/keyri/cordova/plugin/CordovaKeyri.kt
