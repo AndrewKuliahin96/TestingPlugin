@@ -1,0 +1,26 @@
+{
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-globalization": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-globalization"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-keyri": {
+    "source": {
+      "type": "local",
+      "path": "/Users/andriikuliahin/IdeaProjects/Cordova/TestingPlugin/node_modules/cordova-keyri"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
