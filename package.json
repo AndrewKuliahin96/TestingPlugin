@@ -14,9 +14,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^11.0.0",
-    "cordova-keyri": "file:../cordova-keyri",
-    "cordova-plugin-add-swift-support": "^2.0.2",
-    "cordova-plugin-globalization": "^1.11.0"
+    "cordova-keyri": "file:../cordova-keyri"
   },
   "cordova": {
     "platforms": [
