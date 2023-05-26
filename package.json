@@ -13,8 +13,9 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@keyri/cordova-keyri": "^0.0.6",
     "cordova-android": "^11.0.0",
-    "cordova-keyri": "file:../cordova-keyri"
+    "cordova-plugin-globalization": "^1.11.0"
   },
   "cordova": {
     "platforms": [
