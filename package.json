@@ -13,7 +13,7 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@keyri/cordova-keyri": "^0.0.6",
+    "@keyri/cordova-keyri": "github:Keyri-Co/cordova-keyri",
     "cordova-android": "^11.0.0",
     "cordova-plugin-globalization": "^1.11.0"
   },

@@ -23,7 +23,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 let Keyri;
 let appKey = 'dev_ZTj8bC8XUUDNEtNw0FBLR6KYbhi7JO9S';
-let publicAppKey  = 'development_FE2fZlpOwydIcvlGGg3vtLJMCDvweuPe';
+let publicAppKey = 'development_FE2fZlpOwydIcvlGGg3vtLJMCDvweuPe';
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
@@ -36,105 +36,140 @@ function onDeviceReady() {
 }
 
 function initializePlugin() {
-    Keyri.initialize(appKey, publicAppKey, true, (message) => {
-        console.log('CordovaKeyri.initialize', message);
-    }, (e) => {
-        console.log('CordovaKeyri.initialize', e);
-    })
+    Keyri.initialize(appKey, publicAppKey, true)
+        .then((message) => {
+            console.log('CordovaKeyri.initialize', message);
+            isInitialized();
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.initialize', e);
+        });
+}
+
+function isInitialized() {
+    Keyri.isInitialized()
+        .then(() => {
+            console.log('CordovaKeyri.isInitialized', "ok");
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.isInitialized', e);
+        });
 }
 
 function easyKeyriAuth() {
-    Keyri.easyKeyriAuth(appKey, publicAppKey, 'Payload', 'kulagin.andrew38@gmail.com', () => {
-        console.log('CordovaKeyri.easyKeyriAuth', 'ok');
-        alert('Authorized');
-    }, (e) => {
-        console.log('CordovaKeyri.easyKeyriAuth', e);
-    })
+    Keyri.easyKeyriAuth(appKey, publicAppKey, 'Payload', 'kulagin.andrew38@gmail.com')
+        .then(() => {
+            console.log('CordovaKeyri.easyKeyriAuth', 'ok');
+            alert('Authorized');
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.easyKeyriAuth', e);
+        });
 }
 
 function generateAssociationKey() {
-    Keyri.generateAssociationKey('kuliahin.andrew@gmail.com', (key) => {
-        console.log('CordovaKeyri.generateAssociationKey', key);
-        alert('Key generated: ' + key)
-    }, (e) => {
-        console.log('CordovaKeyri.generateAssociationKey', e);
-    })
+    Keyri.generateAssociationKey('kuliahin.andrew@gmail.com')
+        .then((key) => {
+            console.log('CordovaKeyri.generateAssociationKey', key);
+            alert('Key generated: ' + key)
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.generateAssociationKey', e);
+        });
 }
 
 function getUserSignature() {
-    Keyri.getUserSignature('kuliahin.andrew@gmail.com', 'Custom data', (signature) => {
-        console.log('CordovaKeyri.getUserSignature', signature);
-        alert('Signature generated: ' + signature);
-    }, (e) => {
-        console.log('CordovaKeyri.getUserSignature', e);
-    })
+    Keyri.getUserSignature('kuliahin.andrew@gmail.com', 'Custom data')
+        .then((signature) => {
+            console.log('CordovaKeyri.getUserSignature', signature);
+            alert('Signature generated: ' + signature)
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.getUserSignature', e);
+        });
 }
 
 function listAssociationKey() {
-    Keyri.listAssociationKey((keys) => {
-        console.log('CordovaKeyri.listAssociationKey', keys);
-        alert('Association keys: ' + keys);
-    }, (e) => {
-        console.log('CordovaKeyri.listAssociationKey', e);
-    })
+    Keyri.listAssociationKey()
+        .then((keys) => {
+            console.log('CordovaKeyri.listAssociationKey', keys);
+            alert('Association keys: ' + keys);
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.listAssociationKey', e);
+        });
 }
 
 function listUniqueAccounts() {
-    Keyri.listUniqueAccounts((keys) => {
-        console.log('CordovaKeyri.listUniqueAccounts', keys);
-        alert('Unique accounts: ' + keys);
-    }, (e) => {
-        console.log('CordovaKeyri.listUniqueAccounts', e);
-    })
+    Keyri.listUniqueAccounts()
+        .then((keys) => {
+            console.log('CordovaKeyri.listUniqueAccounts', keys);
+            alert('Unique accounts: ' + keys);
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.listUniqueAccounts', e);
+        });
 }
 
 function getAssociationKey() {
-    Keyri.getAssociationKey('kuliahin.andrew@gmail.com', (key) => {
-        console.log('CordovaKeyri.getAssociationKey', key);
-        alert('Association key: ' + key);
-    }, (e) => {
-        console.log('CordovaKeyri.getAssociationKey', e);
-    })
+    Keyri.getAssociationKey('kuliahin.andrew@gmail.com')
+        .then((key) => {
+            console.log('CordovaKeyri.getAssociationKey', key);
+            alert('Association key: ' + key);
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.getAssociationKey', e);
+        });
 }
 
 function removeAssociationKey() {
-    Keyri.removeAssociationKey('kuliahin.andrew@gmail.com', () => {
-        console.log('CordovaKeyri.removeAssociationKey', 'ok');
-        alert('Association key removed!');
-    }, (e) => {
-        console.log('CordovaKeyri.removeAssociationKey', e);
-    })
+    Keyri.removeAssociationKey('kuliahin.andrew@gmail.com')
+        .then(() => {
+            console.log('CordovaKeyri.removeAssociationKey', 'ok');
+            alert('Association key removed!');
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.removeAssociationKey', e);
+        });
 }
 
 function sendEvent() {
-    Keyri.sendEvent('kuliahin.andrew@gmail.com', 'visits', 'success', () => {
-        console.log('CordovaKeyri.sendEvent', 'ok');
-        alert('Event sent!');
-    }, (e) => {
-        console.log('CordovaKeyri.sendEvent', e);
-    })
+    Keyri.sendEvent('kuliahin.andrew@gmail.com', 'visits', 'success',)
+        .then(() => {
+            console.log('CordovaKeyri.sendEvent', 'ok');
+            alert('Event sent!');
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.sendEvent', e);
+        });
 }
 
 function initiateQrSession(sessionId, publicUserId, payload) {
-    Keyri.initiateQrSession(sessionId, publicUserId, (session) => {
-        console.log('CordovaKeyri.initiateQrSession', 'ok');
+    Keyri.initiateQrSession(sessionId, publicUserId)
+        .then(() => {
+            console.log('CordovaKeyri.initiateQrSession', 'ok');
 
-        Keyri.initializeDefaultScreen(session.sessionId, payload, () => {
-            console.log('CordovaKeyri.initializeDefaultScreen', 'ok');
-            alert('Authenticated!');
-        }, (e) => {
-            console.log('CordovaKeyri.initializeDefaultScreen', e);
+            Keyri.initializeDefaultScreen(session.sessionId, payload)
+                .then(() => {
+                    console.log('CordovaKeyri.initializeDefaultScreen', 'ok');
+                    alert('Authenticated!');
+                })
+                .catch((e) => {
+                    console.log('CordovaKeyri.initializeDefaultScreen', e);
+                });
         })
-    }, (e) => {
-        console.log('CordovaKeyri.initiateQrSession', e);
-    })
+        .catch((e) => {
+            console.log('CordovaKeyri.initiateQrSession', e);
+        });
 }
 
 function processLink(link, publicUserId, payload) {
-    Keyri.processLink(link, payload, publicUserId, () => {
-        console.log('CordovaKeyri.processLink', 'ok');
-        alert('Link processed');
-    }, (e) => {
-        console.log('CordovaKeyri.processLink', e);
-    })
+    Keyri.processLink(link, payload, publicUserId)
+        .then(() => {
+            console.log('CordovaKeyri.processLink', 'ok');
+            alert('Link processed');
+        })
+        .catch((e) => {
+            console.log('CordovaKeyri.processLink', e);
+        });
 }
